@@ -1,0 +1,8 @@
+# ambiente virtual
+venv/
+
+# banco local
+*.db
+
+# cache python
+__pycache__/
