@@ -8,8 +8,8 @@ DB_NAME = "lotes.db"
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 
 FIRMAS = [
-    "NKG Stockler", "Cofco", "Sucafina", "Volcafé", "Elam",
-    "Mitsui", "Olam", "Louis Dreyfus", "Tristão", "Comexim", "Neumann"
+    "NKG Stockler", "Cofco", "Sucafina", "Volcafé", "Eisa",
+    "Mitsui", "Olam", "Louis Dreyfus", "Ocramar", "Comexim", "ESCRITÓRIO"
 ]
 
 # ---------------- DATABASE ----------------
@@ -125,13 +125,13 @@ def apagar_via(via_id):
 
 # ---------------- UI ----------------
 st.set_page_config(page_title="CoffeaTrack", layout="centered")
-st.title("☕ CoffeaTrack - Rastreamento de Amostras")
+st.title("CoffeaTrack - Controle de Vias")
 
 pagina = st.sidebar.selectbox("Menu", ["Corretor", "Admin", "Relatório"])
 
 # ---------------- CORRETOR ----------------
 if pagina == "Corretor":
-    st.header("🚚 Entrega de Via")
+    st.header("Entrega de Via")
 
     corretor = st.text_input("Nome do Corretor")
     vias = vias_pendentes()
@@ -161,7 +161,7 @@ elif pagina == "Admin":
     if senha != ADMIN_PASSWORD:
         st.warning("Acesso restrito.")
     else:
-        st.header("🔐 Admin")
+        st.header("Admin")
 
         st.subheader("Criar Lote")
         numero = st.text_input("Número do Lote")
@@ -175,7 +175,7 @@ elif pagina == "Admin":
 
 # ---------------- RELATÓRIO ----------------
 elif pagina == "Relatório":
-    st.header("📊 Relatório de Vias")
+    st.header("Relatório de Vias")
 
     dados = relatorio()
 
